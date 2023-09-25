@@ -16,7 +16,8 @@ public class StudentController {
     public List<String> findAllStudents(){
 return  List.of(
         "Ahmed",
-        "belhaj boubaker"
+        "belhaj boubaker",
+        "4twin8"
 );
     }
 
