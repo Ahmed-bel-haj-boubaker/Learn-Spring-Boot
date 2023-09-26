@@ -1,8 +1,13 @@
 package com.learnspringboot.springdemo.student;
 
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.Period;
+
+@Entity
+@Table(name = "student")
 public class Student {
 
     public Student(String firstName, String lastname, LocalDate dateOfBirth, String email, int age) {
@@ -17,16 +22,25 @@ public class Student {
 
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Id
+    @GeneratedValue // auto generated
+     private Integer  id;
     private String firstName;
 
     private String lastname;
 
     private LocalDate dateOfBirth;
-
+    @Column(unique = true)
     private String email;
-
-
-
+    @Transient
     private int age;
 
     public String getFirstName() {
@@ -62,7 +76,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return Period.between(dateOfBirth,LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {

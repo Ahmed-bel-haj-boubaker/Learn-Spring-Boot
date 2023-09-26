@@ -2,6 +2,7 @@ package com.learnspringboot.springdemo.student;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ import java.util.List;
 public class StudentController {
     private  StudentService service;
 
-     public StudentController(StudentService service) {
+     public StudentController(@Qualifier("DBStudentService") StudentService service) {
         this.service = service;
     }
 
