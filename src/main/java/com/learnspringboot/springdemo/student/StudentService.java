@@ -19,7 +19,7 @@ public class StudentService {
                 ),
                 new Student(
                         "amine",
-                        "laouiti3",
+                        "laouiti",
                         LocalDate.now(),
                         "amine.gmail.com",
                         22
